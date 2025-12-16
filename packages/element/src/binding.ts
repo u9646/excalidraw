@@ -108,8 +108,8 @@ export type BindingStrategy =
  *
  * IMPORTANT: currently must be > 0 (this also applies to the computed gap)
  */
-export const BASE_BINDING_GAP = 10;
-export const BASE_BINDING_GAP_ELBOW = 5;
+export const BASE_BINDING_GAP = 2;
+export const BASE_BINDING_GAP_ELBOW = 2;
 
 export const getBindingGap = (
   bindTarget: ExcalidrawBindableElement,
@@ -122,12 +122,12 @@ export const getBindingGap = (
 };
 
 export const maxBindingDistance_simple = (zoom?: AppState["zoom"]): number => {
-  const BASE_BINDING_DISTANCE = Math.max(BASE_BINDING_GAP, 15);
+  const BASE_BINDING_DISTANCE = Math.max(BASE_BINDING_GAP, 2);
   const zoomValue = zoom?.value && zoom.value < 1 ? zoom.value : 1;
   return clamp(
     // reducing zoom impact so that the diff between binding distance and
     // binding gap is kept to minimum when possible
-    BASE_BINDING_DISTANCE / (zoomValue * 1.5),
+    BASE_BINDING_DISTANCE / (zoomValue * 1.2),
     BASE_BINDING_DISTANCE,
     BASE_BINDING_DISTANCE * 2,
   );
