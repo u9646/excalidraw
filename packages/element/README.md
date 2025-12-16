@@ -1,6 +1,6 @@
 # @excalidraw/element
 
-## Install
+## Install Step
 
 ```bash
 npm install @excalidraw/element
